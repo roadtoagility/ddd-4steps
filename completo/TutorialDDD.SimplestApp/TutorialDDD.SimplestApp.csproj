@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Configurations>Debug;Release;Release Profilling</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release Profilling' ">
+      <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DFlow.Domain.EventBus.FluentMediator" Version="0.4.0-pre273" />
+      <PackageReference Include="FluentMediator" Version="0.4.7" />
+      <PackageReference Include="FluentMediator.Microsoft.Extensions.DependencyInjection" Version="0.4.7" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TutorialDDD.Business\TutorialDDD.Business.csproj" />
+      <ProjectReference Include="..\TutorialDDD.Domain\TutorialDDD.Domain.csproj" />
+      <ProjectReference Include="..\TutorialDDD.Persistence\TutorialDDD.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>

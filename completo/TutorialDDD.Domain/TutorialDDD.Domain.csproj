@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DFlow.Domain" Version="0.4.0-pre273" />
+        <PackageReference Include="FluentValidation" Version="9.3.0" />
+        <PackageReference Include="ValueOf" Version="2.0.21" />
+    </ItemGroup>
+    <PropertyGroup>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    </PropertyGroup>
+</Project>
