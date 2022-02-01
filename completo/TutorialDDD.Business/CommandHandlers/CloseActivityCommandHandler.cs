@@ -25,6 +25,7 @@ using DFlow.Business.Cqrs;
 using DFlow.Domain.Aggregates;
 using DFlow.Domain.Events;
 using DFlow.Persistence;
+using TutorialDDD.Persistence.Model.Repositories;
 
 namespace TutorialDDD.Business.CommandHandlers
 {
@@ -53,7 +54,7 @@ namespace TutorialDDD.Business.CommandHandlers
             var activity = _dbSession.Repository.Get(command.ActivityId);
 
             var agg = _factory.Create(activity);
-            agg.Close(new ActivityCanBeClosed());
+            agg.Close();
 
             // aqui seria um exemplo de uma regra mais complexa como condição para o fechamento da atividade
             //agg.Close(new ActivityCanBeClosed().And(new ActivityCanBeCLosedByMe()));

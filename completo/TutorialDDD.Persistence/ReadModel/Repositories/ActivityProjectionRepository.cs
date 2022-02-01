@@ -20,18 +20,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using TutorialDDD.Domain.BusinessObjects;
 
 namespace TutorialDDD.Persistence.ReadModel.Repositories
 {
     public sealed class ActivityProjectionRepository : IActivityProjectionRepository
     {
-        public ActivityProjectionRepository(AppFabricDbContext context)
+        public ActivityProjectionRepository(TutorialDddDbContext context)
         {
             Context = context;
         }
 
-        private AppFabricDbContext Context { get; }
+        private TutorialDddDbContext Context { get; }
 
         public void Add(ActivityProjection entity)
         {
@@ -44,6 +46,16 @@ namespace TutorialDDD.Persistence.ReadModel.Repositories
         }
 
         public IReadOnlyList<ActivityProjection> Find(Expression<Func<ActivityProjection, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IReadOnlyList<ActivityProjection>> FindAsync(Expression<Func<ActivityProjection, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IReadOnlyList<ActivityProjection>> FindAsync(Expression<Func<ActivityProjection, bool>> predicate, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

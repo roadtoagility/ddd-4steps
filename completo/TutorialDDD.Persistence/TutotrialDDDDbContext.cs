@@ -1,13 +1,13 @@
-using TutotrialDDD.Persistence.Model;
 using DFlow.Persistence.EntityFramework.Model;
 using Microsoft.EntityFrameworkCore;
 using TutorialDDD.Persistence.ReadModel;
+using TutotrialDDD.Persistence.Model;
 
-namespace TutotrialDDD.Persistence
+namespace TutorialDDD.Persistence
 {
-    public class TutotrialDDDDbContext : AggregateDbContext
+    public class TutorialDddDbContext : AggregateDbContext
     {
-        public TutotrialDDDDbContext(DbContextOptions<TutotrialDDDDbContext> options)
+        public TutorialDddDbContext(DbContextOptions<TutorialDddDbContext> options)
             : base(options)
         {
         }
@@ -23,12 +23,8 @@ namespace TutotrialDDD.Persistence
                 b =>
                 {
                     b.Property(e => e.Id).ValueGeneratedNever().IsRequired();
-                    b.Property(e => e.Code).IsRequired();
                     b.Property(e => e.Name).IsRequired();
-                    b.Property(e => e.Budget).IsRequired();
                     b.HasKey(e => e.Id);
-                    b.Property(e => e.ClientId).IsRequired();
-                    b.Property(e => e.StartDate).IsRequired();
 
                     b.Property(p => p.PersistenceId);
                     b.Property(q => q.IsDeleted);
@@ -44,10 +40,6 @@ namespace TutotrialDDD.Persistence
                 p.Property(pr => pr.Id).ValueGeneratedNever();
                 p.HasKey(pr => pr.Id);
                 p.Property(pr => pr.Name);
-                p.Property(pr => pr.Code);
-                p.Property(pr => pr.StartDate);
-                p.Property(pr => pr.Budget);
-                p.Property(pr => pr.ClientId);
                 p.HasQueryFilter(proj => EF.Property<bool>(proj, "IsDeleted") == false);
             });
 

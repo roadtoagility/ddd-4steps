@@ -5,13 +5,11 @@ namespace TutorialDDD.Business.CommandHandlers.Commands
 {
     public class CloseActivityCommand : BaseCommand
     {
-        public CloseActivityCommand(EntityId activityId, int estimatedHours)
+        public CloseActivityCommand(EntityId activityId)
         {
             ActivityId = activityId;
-            EstimatedHours = Effort.From(estimatedHours);
         }
 
         public EntityId ActivityId { get; }
-        public Effort EstimatedHours { get; }
     }
 }

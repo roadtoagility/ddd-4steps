@@ -16,13 +16,13 @@
 // Boston, MA  02110-1301, USA.
 //
 
-using AppFabric.Persistence.Model.Repositories;
-using AppFabric.Persistence.ReadModel.Repositories;
+using TutorialDDD.Persistence.Model.Repositories;
 using DFlow.Persistence;
 using DFlow.Persistence.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
+using TutorialDDD.Persistence.ReadModel.Repositories;
 
-namespace AppFabric.Persistence
+namespace TutorialDDD.Persistence
 {
     public static class BusinessServiceCollectionExtensions
     {
@@ -30,27 +30,12 @@ namespace AppFabric.Persistence
         {
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectProjectionRepository, ProjectProjectionRepository>();
-
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserProjectionRepository, UserProjectionRepository>();
-
+            
             services.AddScoped<IDbSession<IProjectRepository>, DbSession<IProjectRepository>>();
             services.AddScoped<IDbSession<IProjectProjectionRepository>, DbSession<IProjectProjectionRepository>>();
-
-            services.AddScoped<IDbSession<IUserRepository>, DbSession<IUserRepository>>();
-            services.AddScoped<IDbSession<IUserProjectionRepository>, DbSession<IUserProjectionRepository>>();
-
+            
             services.AddScoped<IDbSession<IActivityRepository>, DbSession<IActivityRepository>>();
             services.AddScoped<IDbSession<IActivityProjectionRepository>, DbSession<IActivityProjectionRepository>>();
-
-            services.AddScoped<IDbSession<IBillingRepository>, DbSession<IBillingRepository>>();
-            services.AddScoped<IDbSession<IBillingProjectionRepository>, DbSession<IBillingProjectionRepository>>();
-
-            services.AddScoped<IDbSession<IReleaseRepository>, DbSession<IReleaseRepository>>();
-            services.AddScoped<IDbSession<IReleaseProjectionRepository>, DbSession<IReleaseProjectionRepository>>();
-
-            services.AddScoped<IDbSession<IMemberRepository>, DbSession<IMemberRepository>>();
-            services.AddScoped<IDbSession<IMemberProjectionRepository>, DbSession<IMemberProjectionRepository>>();
         }
     }
 }

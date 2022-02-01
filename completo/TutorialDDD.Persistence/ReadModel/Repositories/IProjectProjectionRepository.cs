@@ -16,7 +16,7 @@
 // Boston, MA  02110-1301, USA.
 //
 
-using TutorialDDD.Persistence.Framework.ReadModel.Repositories;
+using DFlow.Persistence.ReadModel.Repositories;
 
 namespace TutorialDDD.Persistence.ReadModel.Repositories
 {

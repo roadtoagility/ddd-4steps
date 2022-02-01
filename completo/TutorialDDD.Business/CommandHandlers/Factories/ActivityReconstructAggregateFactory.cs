@@ -18,8 +18,6 @@
 
 using System;
 using TutorialDDD.Domain.AggregationActivity;
-using TutorialDDD.Domain.AggregationActivity.Specifications;
-using TutorialDDD.Domain.BusinessObjects.Validations.ActivityRules;
 using DFlow.Domain.Aggregates;
 
 namespace TutorialDDD.Business.CommandHandlers.Factories
@@ -29,9 +27,7 @@ namespace TutorialDDD.Business.CommandHandlers.Factories
     {
         public ActivityAggregationRoot Create(Activity source)
         {
-            var spec = new ActivitySpecification();
-
-            if (spec.IsSatisfiedBy(source) == false)
+            if (source.IsValid == false)
             {
                 throw new ArgumentException("Invalid Command");
             }

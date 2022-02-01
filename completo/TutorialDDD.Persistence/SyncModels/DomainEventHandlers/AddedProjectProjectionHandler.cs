@@ -18,41 +18,28 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using AppFabric.Domain.AggregationProject.Events;
-using AppFabric.Persistence.ReadModel;
-using AppFabric.Persistence.ReadModel.Repositories;
 using DFlow.Domain.Events;
 using DFlow.Persistence;
+using TutorialDDD.Domain.AggregationProject.Events;
+using TutorialDDD.Persistence.ReadModel;
+using TutorialDDD.Persistence.ReadModel.Repositories;
 
-namespace AppFabric.Persistence.SyncModels.DomainEventHandlers
+namespace TutorialDDD.Persistence.SyncModels.DomainEventHandlers
 {
     public sealed class AddedProjectProjectionHandler : DomainEventHandler<ProjectAddedEvent>
     {
         private readonly IDbSession<IProjectProjectionRepository> _projectSession;
-        private readonly IDbSession<IUserProjectionRepository> _userSession;
 
-        public AddedProjectProjectionHandler(IDbSession<IProjectProjectionRepository> projectSession,
-            IDbSession<IUserProjectionRepository> userSession)
+        public AddedProjectProjectionHandler(IDbSession<IProjectProjectionRepository> projectSession)
         {
             _projectSession = projectSession;
-            _userSession = userSession;
         }
 
         protected override Task ExecuteHandle(ProjectAddedEvent @event, CancellationToken cancellationToken)
         {
-            var client = _userSession.Repository.Get(@event.ClientId);
-
             var projection = new ProjectProjection(
                 @event.Id.Value,
                 @event.Name.Value,
-                @event.Code.Value,
-                @event.Budget.Value,
-                @event.StartDate.Value,
-                @event.ClientId.Value,
-                client.Name,
-                @event.Owner.Value,
-                @event.OrderNumber.Value.Number,
-                @event.Status.ToString(),
                 @event.Version.Value);
 
             _projectSession.Repository.Add(projection);

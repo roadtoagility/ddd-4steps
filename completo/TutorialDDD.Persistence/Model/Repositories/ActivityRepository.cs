@@ -12,12 +12,12 @@ namespace TutorialDDD.Persistence.Model.Repositories
 {
     public class ActivityRepository : IActivityRepository
     {
-        public ActivityRepository(TutotrialDDDDbContext context)
+        public ActivityRepository(TutorialDddDbContext context)
         {
             DbContext = context;
         }
 
-        private TutotrialDDDDbContext DbContext { get; }
+        private TutorialDddDbContext DbContext { get; }
 
         public Activity Get(EntityId entityId)
         {

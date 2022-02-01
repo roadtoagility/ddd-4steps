@@ -30,8 +30,7 @@ namespace TutorialDDD.Persistence.ExtensionMethods
         public static ProjectState ToProjectState(this Project project)
         {
             return new ProjectState(project.Identity.Value,
-                project.Name.Value,
-                BitConverter.GetBytes(project.Version.Value));
+                project.Name.Value,BitConverter.GetBytes(project.Version.Value));
         }
 
         public static Project ToProject(this ProjectState state)

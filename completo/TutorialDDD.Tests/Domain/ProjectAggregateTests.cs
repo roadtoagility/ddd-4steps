@@ -1,5 +1,4 @@
 ﻿using System;
-using AppFabric.Business.CommandHandlers.Commands;
 using AppFabric.Business.CommandHandlers.Factories;
 using AppFabric.Domain.AggregationProject.Events;
 using AppFabric.Domain.BusinessObjects;

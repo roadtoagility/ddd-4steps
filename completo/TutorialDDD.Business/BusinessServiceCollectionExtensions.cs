@@ -38,10 +38,8 @@ namespace TutorialDDD.Business
                 .AddScoped<IAggregateFactory<ActivityAggregationRoot, Activity>, ActivityReconstructAggregateFactory>();
 
             ////project
-            //services
-            //    .AddScoped<IAggregateFactory<ProjectAggregationRoot, AddProjectCommand>, ProjectAggregateFactory>();
             services
-                .AddScoped<IAggregateFactory<ProjectAggregationRoot, Project>, ProjectAggregateFactory>();
+                .AddScoped<IAggregateFactory<ProjectAggregationRoot, AddProjectCommand>, ProjectAggregateFactory>();
         }
 
         public static void AddCommandHandlers(this IServiceCollection services)

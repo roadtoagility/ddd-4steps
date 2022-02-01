@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using AppFabric.Domain.AggregationActivity.Events;
 using DFlow.Domain.Events;
+using TutorialDDD.Domain.AggregationActivity.Events;
 
-namespace AppFabric.Persistence.SyncModels.DomainEventHandlers
+namespace TutorialDDD.Persistence.SyncModels.DomainEventHandlers
 {
     public class CreatedActivityProjectionHandler : DomainEventHandler<ActivityCreatedEvent>
     {

@@ -21,15 +21,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using TutorialDDD.Domain.BusinessObjects;
 
 namespace TutorialDDD.Persistence.ReadModel.Repositories
 {
     public sealed class ProjectProjectionRepository : IProjectProjectionRepository
     {
-        private readonly AppFabricDbContext _context;
+        private readonly TutorialDddDbContext _context;
 
-        public ProjectProjectionRepository(AppFabricDbContext context)
+        public ProjectProjectionRepository(TutorialDddDbContext context)
         {
             _context = context;
         }
@@ -64,6 +66,16 @@ namespace TutorialDDD.Persistence.ReadModel.Repositories
         public IReadOnlyList<ProjectProjection> Find(Expression<Func<ProjectProjection, bool>> predicate)
         {
             return _context.ProjectsProjection.Where(predicate).ToList();
+        }
+
+        public Task<IReadOnlyList<ProjectProjection>> FindAsync(Expression<Func<ProjectProjection, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IReadOnlyList<ProjectProjection>> FindAsync(Expression<Func<ProjectProjection, bool>> predicate, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }

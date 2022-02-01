@@ -38,56 +38,5 @@ namespace TutorialDDD.Domain.AggregationProject
                 Raise(ProjectAddedEvent.For(project));
             }
         }
-
-        public void UpdateDetail(Project.ProjectDetail detail, ISpecification<Project> specUpdateProject)
-        {
-            var projUpdated = Project.CombineWith(AggregateRootEntity, detail);
-
-            if (specUpdateProject.IsSatisfiedBy(projUpdated) == false)
-            {
-                AppendValidationResult(projUpdated.Failures);
-            }
-            else
-            {
-                Apply(projUpdated);
-                Raise(ProjectDetailUpdatedEvent.For(projUpdated));
-            }
-        }
-
-        public void Remove(ISpecification<Project> specRemoveProject)
-        {
-            if (specRemoveProject.IsSatisfiedBy(AggregateRootEntity) == false)
-            {
-                Apply(AggregateRootEntity);
-                Raise(ProjectRemovedEvent.For(AggregateRootEntity));
-            }
-            else
-            {
-                AppendValidationResult(new ValidationFailure("Project", "Can´t be removed!"));
-            }
-        }
-
-        public void AddMember(Member member, ISpecification<Project> spec)
-        {
-            AppendValidationResult(new ValidationFailure("Member","Not implemented"));      
-        }
-        
-        public void RemoveMember(Member member, ISpecification<Project> spec)
-        {
-            AppendValidationResult(new ValidationFailure("Member","Not implemented"));
-        }
-        
-        public void AddProject(User client, ISpecification<Project> spec)
-        {
-            if (spec.IsSatisfiedBy(AggregateRootEntity) == false)
-            {
-                Apply(AggregateRootEntity);
-                Raise(ProjectAddedEvent.For(AggregateRootEntity));
-            }
-            else
-            {
-                AppendValidationResult(new ValidationFailure("Project", "Can´t be added to client!"));
-            }
-        }
     }
 }

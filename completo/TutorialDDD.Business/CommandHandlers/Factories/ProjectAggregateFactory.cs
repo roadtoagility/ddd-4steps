@@ -17,21 +17,19 @@
 //
 
 using System;
-using TutorialDDD.Business.CommandHandlers.Commands;
 using TutorialDDD.Domain.AggregationProject;
-using TutorialDDD.Domain.AggregationProject.Specifications;
-using TutorialDDD.Domain.BusinessObjects;
 using DFlow.Domain.Aggregates;
+using TutorialDDD.Business.CommandHandlers.Commands;
+using TutorialDDD.Domain.BusinessObjects;
 
 namespace TutorialDDD.Business.CommandHandlers.Factories
 {
     public class ProjectAggregateFactory :
-        IAggregateFactory<ProjectAggregationRoot, AddProjectCommand>,
-        IAggregateFactory<ProjectAggregationRoot, Project>
+        IAggregateFactory<ProjectAggregationRoot, AddProjectCommand>
     {
         public ProjectAggregationRoot Create(AddProjectCommand command)
         {
-            var project = Project.NewRequest(command.Name);
+            var project = Project.NewRequest(command.Name, EntityId.GetNext());
 
             if (project.IsValid == false) throw new ArgumentException("Invalid Command");
 

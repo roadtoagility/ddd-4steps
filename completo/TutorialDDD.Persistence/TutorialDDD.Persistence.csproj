@@ -11,11 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Framework\ReadModel" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\AppFabric.Domain\AppFabric.Domain.csproj" />
         <ProjectReference Include="..\TutorialDDD.Domain\TutorialDDD.Domain.csproj" />
     </ItemGroup>
     <PropertyGroup>

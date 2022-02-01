@@ -23,21 +23,23 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using AppFabric.Domain.BusinessObjects;
-using AppFabric.Persistence.ExtensionMethods;
 using DFlow.Domain.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
+using TutorialDDD.Domain.AggregationProject;
+using TutorialDDD.Domain.BusinessObjects;
+using TutorialDDD.Persistence.ExtensionMethods;
+using TutotrialDDD.Persistence.Model;
 
-namespace AppFabric.Persistence.Model.Repositories
+namespace TutorialDDD.Persistence.Model.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {
-        public ProjectRepository(AppFabricDbContext context)
+        public ProjectRepository(TutorialDddDbContext context)
         {
             DbContext = context;
         }
 
-        private AppFabricDbContext DbContext { get; }
+        private TutorialDddDbContext DbContext { get; }
 
         // https://docs.microsoft.com/en-us/ef/core/saving/disconnected-entities
 

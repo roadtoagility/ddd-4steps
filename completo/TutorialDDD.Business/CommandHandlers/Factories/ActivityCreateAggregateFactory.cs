@@ -28,7 +28,7 @@ namespace TutorialDDD.Business.CommandHandlers.Factories
     {
         public ActivityAggregationRoot Create(CreateActivityCommand source)
         {
-            var activity = Activity.New(source.ProjectId, source.EstimatedHours);
+            var activity = Activity.New(source.ProjectId);
 
             if (activity.IsValid == false)
             {

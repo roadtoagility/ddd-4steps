@@ -6,13 +6,11 @@ namespace TutorialDDD.Business.CommandHandlers.Commands
 {
     public class CreateActivityCommand : BaseCommand
     {
-        public CreateActivityCommand(Guid projectId, int estimatedHours)
+        public CreateActivityCommand(Guid projectId)
         {
             ProjectId = EntityId.From(projectId);
-            EstimatedHours = Effort.From(estimatedHours);
         }
 
         public EntityId ProjectId { get; }
-        public Effort EstimatedHours { get; }
     }
 }
