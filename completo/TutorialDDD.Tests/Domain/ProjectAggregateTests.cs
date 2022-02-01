@@ -1,59 +1,39 @@
-﻿using System;
-using AppFabric.Business.CommandHandlers.Factories;
-using AppFabric.Domain.AggregationProject.Events;
-using AppFabric.Domain.BusinessObjects;
+﻿// Copyright (C) 2021  Road to Agility
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Library General Public
+// License as published by the Free Software Foundation; either
+// version 2 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Library General Public License for more details.
+//
+// You should have received a copy of the GNU Library General Public
+// License along with this library; if not, write to the
+// Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+// Boston, MA  02110-1301, USA.
+//
+
+using System;
+using TutorialDDD.Business.CommandHandlers.Commands;
+using TutorialDDD.Business.CommandHandlers.Factories;
 using Xunit;
 
-namespace AppFabric.Tests.Domain
+namespace TutorialDDD.Tests.Domain
 {
     public class ProjectAggregateTests
     {
-        // //Um projeto só pode ser cadastrado com uma Ordem de Serviço aprovada
-        // [Fact]
-        // public void ShouldCreateProjectWithServiceOrder()
-        // {
-        //     var orderService = ServiceOrder.From(("S20210209O125478593", true));
-        //     var projectId = EntityId.From(Guid.NewGuid());
-        //     var status = ProjectStatus.From("NotApproved");
-        //     var factory = new ProjectAggregateFactory();
-        //     var projAgg = factory.Create(new AddProjectCommand(
-        //         "S20210209O125478593",
-        //         "doug.ramalho@gma.com",
-        //         "PojectFake",
-        //         DateTime.Now,
-        //         134,
-        //         Guid.NewGuid(), 
-        //         "23234234",
-        //         true,
-        //         status.ToString()
-        //     ));
-        //
-        //     Assert.True(projAgg.IsValid);
-        //     Assert.Contains(projAgg.GetEvents(), x => x is ProjectAddedEvent);
-        // }
-        //
-        // [Fact]
-        // public void ShouldNotCreateProjectWithServiceOrderNotApproved()
-        // {
-        //     var orderService = ServiceOrder.From(("S20210209O125478593", false));
-        //     var projectId = EntityId.From(Guid.NewGuid());
-        //     var status = ProjectStatus.From("NotApproved");
-        //     var factory = new ProjectAggregateFactory();
-        //
-        //     var ex = Assert.Throws<Exception>(() =>
-        //     {
-        //         var projAgg = factory.Create(new AddProjectCommand(
-        //             "S20210209O125478593",
-        //             "doug.ramalho@gma.com",
-        //             "PojectFake",
-        //             DateTime.Now,
-        //             134,
-        //             Guid.NewGuid(), 
-        //             "23234234",
-        //             false,
-        //             status.ToString()
-        //         ));
-        //     });
-        // }
+        [Fact]
+        public void ShouldNotCreateProjectWithEmptyName()
+        {
+            var factory = new ProjectAggregateFactory();
+
+            var ex = Assert.Throws<Exception>(() =>
+            {
+                var projAgg = factory.Create(new AddProjectCommand(string.Empty));
+            });
+        }
     }
 }

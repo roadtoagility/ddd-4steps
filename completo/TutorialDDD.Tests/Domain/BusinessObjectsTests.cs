@@ -1,29 +1,34 @@
-﻿using System;
-using AppFabric.Business.CommandHandlers.Factories;
-using AppFabric.Domain.AggregationActivity.Events;
-using AppFabric.Domain.AggregationActivity.Specifications;
-using AppFabric.Domain.BusinessObjects;
-using AppFabric.Tests.Domain.Data;
-using DFlow.Domain.BusinessObjects;
+﻿// Copyright (C) 2021  Road to Agility
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Library General Public
+// License as published by the Free Software Foundation; either
+// version 2 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Library General Public License for more details.
+//
+// You should have received a copy of the GNU Library General Public
+// License along with this library; if not, write to the
+// Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+// Boston, MA  02110-1301, USA.
+//
+
+using TutorialDDD.Domain.BusinessObjects;
 using Xunit;
 
-namespace AppFabric.Tests.Domain
+namespace TutorialDDD.Tests.Domain
 {
     public class BusinessObjectsTests
     {
         [Theory]
-        [InlineData("S987987",true)]
-        public void ShouldCreatedServiceOrder(string soNumber, bool soStatus)
+        [InlineData("My Project")]
+        public void ShouldCreatedServiceOrder(string name)
         {
-            var bo = ServiceOrder.From((soNumber,soStatus));
-            Assert.True(bo.ValidationStatus.IsValid);
+            var pn = ProjectName.From(name);
+            Assert.True(pn.ValidationStatus.IsValid);
         }
-        
-        // [Fact]
-        // public void ServiceOrderShouldNotBeCreate()
-        // {
-        //     var bo = ServiceOrder.From((null,false));
-        //     Assert.False(bo.ValidationStatus.IsValid);
-        // }
     }
 }

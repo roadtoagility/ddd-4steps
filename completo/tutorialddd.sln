@@ -10,8 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialDDD.Persistence", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialDDD.Business", "TutorialDDD.Business\TutorialDDD.Business.csproj", "{73C4C3FC-28BA-4600-987B-7B250241B974}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialDDD.SimplestApp", "TutorialDDD.SimplestApp\TutorialDDD.SimplestApp.csproj", "{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialDDD.Tests", "TutorialDDD.Tests\TutorialDDD.Tests.csproj", "{DCAF8180-C86F-4A65-847E-0A5699E4CB8C}"
 EndProject
 Global
@@ -39,12 +37,6 @@ Global
 		{73C4C3FC-28BA-4600-987B-7B250241B974}.Release Profilling|Any CPU.Build.0 = Release|Any CPU
 		{73C4C3FC-28BA-4600-987B-7B250241B974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C4C3FC-28BA-4600-987B-7B250241B974}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Release Profilling|Any CPU.ActiveCfg = Release Profilling|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Release Profilling|Any CPU.Build.0 = Release Profilling|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B60DC3B-D2DD-4460-8ED8-2F374B6A2A41}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCAF8180-C86F-4A65-847E-0A5699E4CB8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCAF8180-C86F-4A65-847E-0A5699E4CB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCAF8180-C86F-4A65-847E-0A5699E4CB8C}.Release Profilling|Any CPU.ActiveCfg = Release|Any CPU

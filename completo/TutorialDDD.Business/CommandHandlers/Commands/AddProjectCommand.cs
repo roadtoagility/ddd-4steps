@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2021  Road to Agility
+﻿// Copyright (C) 2020  Road to Agility
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Library General Public
@@ -16,28 +16,22 @@
 // Boston, MA  02110-1301, USA.
 //
 
-using System.Collections;
-using System.Collections.Generic;
-using TutorialDDD.Domain.AggregationActivity;
+using System;
+using System.Collections.Immutable;
+using DFlow.Domain.Command;
 using TutorialDDD.Domain.BusinessObjects;
 
-namespace TutorialDDD.Tests.Domain.Data
+namespace TutorialDDD.Business.CommandHandlers.Commands
 {
-    public class GenerateValidActivityAndMemberTestingData:IEnumerable<object[]>
+    public class AddProjectCommand : BaseCommand
     {
-        private readonly List<object[]> _data = new List<object[]>
+        public AddProjectCommand(string name)
         {
-            new object[]
-            {
-                Activity.New(EntityId.From("e6ac4bf9-c0af-42f4-a73c-05e6d510bfb6"))
-            }
-        };
+            Name = ProjectName.From(name);
 
-        public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            AppendValidationResult(Name.ValidationStatus.Errors.ToImmutableList());
         }
+
+        public ProjectName Name { get; set; }
     }
 }
